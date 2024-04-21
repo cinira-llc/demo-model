@@ -49,9 +49,15 @@ jobs:
       - run: npm audit signatures
 
       - run: npx semantic-release
+        id: semantic_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: |
+          echo ${{ steps.semantic_release.outputs.new-release-published }}
+          echo ${{ steps.semantic_release.outputs.release-version }}
+          echo ${{ steps.semantic_release.outputs }}
 
       - run: ./gradlew -x test -Pversion=0.0.1-SNAPSHOT publish
         env:
