@@ -1,4 +1,4 @@
-package cinira.model.dtpp
+package cinira.dtpp
 
 import cinira.Model
 import com.fasterxml.jackson.annotation.JsonInclude

@@ -6,7 +6,7 @@ plugins {
 
 apply(from = "./repository.gradle.kts")
 
-group = "cinira.demo"
+group = "cinira"
 
 java {
     toolchain {
