@@ -37,15 +37,7 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - run: ./gradlew -Pcinira_artifacts_repo_password=$PACKAGES_ACCESS_TOKEN test
-
-      - uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          comment_mode: off
-          files:
-            ./build/test-results/jest/*.xml
-            ./build/test-results/test/*.xml
+      - run: ./gradlew -x javadoc -Pcinira_artifacts_repo_password=$PACKAGES_ACCESS_TOKEN test
 
       - run: npm install
 
@@ -56,3 +48,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          comment_mode: off
+          files:
+            ./build/test-results/jest/*.xml
+            ./build/test-results/test/*.xml
