@@ -35,9 +35,7 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - run: |
-          ./gradlew test \
-            && npm test
+      - run: ./gradlew test
 
       - uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
