@@ -54,6 +54,7 @@
   "jest": {
     "preset": "ts-jest",
     "reporters": [
+      "default",
       [
         "jest-junit",
         {

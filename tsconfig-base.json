@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src/main/ts",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
     "preserveConstEnums": true,
-    "rootDir": "./src/test/ts",
+    "rootDir": "./src/main/ts",
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
