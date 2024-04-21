@@ -1,7 +1,12 @@
 plugins {
     kotlin("plugin.noarg") version "1.9.23"
     kotlin("jvm") version "1.9.23"
+    `maven-publish`
 }
+
+apply(from = "./repository.gradle.kts")
+
+group = "cinira.demo"
 
 java {
     toolchain {
@@ -18,6 +23,7 @@ dependencies {
 
     //<editor-fold desc="Implementation dependencies">
     implementation("org.slf4j:slf4j-api")
+    implementation("com.fasterxml.jackson.core:jackson-annotations")
     //</editor-fold>
 
     //<editor-fold desc="Runtime-only dependencies">
@@ -34,6 +40,18 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testRuntimeOnly("org.springframework.boot:spring-boot-starter-test")
     //</editor-fold>
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        val ciniraArtifacts: Action<RepositoryHandler> by rootProject.extra
+        ciniraArtifacts(this)
+    }
 }
 
 repositories {

@@ -53,6 +53,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - run: ./gradlew -x test -Pversion=0.0.1-SNAPSHOT publish
+
 #      - run: |
 #          ./gradlew -x test -Pversion=${{ steps.semantic_version.outputs.new_version }} build \
 #            && npm run build
