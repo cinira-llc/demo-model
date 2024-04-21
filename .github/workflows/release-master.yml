@@ -43,7 +43,9 @@ jobs:
         if: always()
         with:
           comment_mode: off
-          files: ./build/test-results/test/*.xml
+          files:
+            ./build/test-results/jest/*.xml
+            ./build/test-results/test/*.xml
 
       - run: npm install
 
