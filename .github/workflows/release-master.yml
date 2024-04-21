@@ -53,23 +53,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: ./gradlew -x test -Pversion=0.0.1-SNAPSHOT publish
-        env:
-          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.PACKAGES_ACCESS_TOKEN }}
-
-#      - run: |
-#          ./gradlew -x test -Pversion=${{ steps.semantic_version.outputs.new_version }} build \
-#            && npm run build
-#        if: ${{ steps.semantic_version.outputs.new_version || false }}
-#
-#      - uses: softprops/action-gh-release@v1
-#        if: ${{ steps.semantic_version.outputs.new_version || false }}
-#        with:
-#          generate_release_notes: ${{ !startsWith(steps.semantic_version.outputs.release_type, 'pre') }}
-#          name: v${{ steps.semantic_version.outputs.new_version }}
-#          prerelease: ${{ startsWith(steps.semantic_version.outputs.release_type, 'pre') }}
-#          tag_name: v_${{ steps.semantic_version.outputs.new_version }}
-#          token: ${{ secrets.GITHUB_TOKEN }}
-#          files: |
-#            ./build/libs/demo-api-${{ steps.semantic_version.outputs.new_version }}.war

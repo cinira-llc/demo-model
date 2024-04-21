@@ -17,7 +17,7 @@
     "format": "prettier --write \"src/main/ts/**/*.ts\"",
     "lint": "eslint ./src/main/ts",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint && echo [$npm_package_version]",
+    "prepublishOnly": "npm test && npm run lint && ./gradlew -x test -Pversion=$npm_package_version publish",
     "test": "jest"
   },
   "files": [
