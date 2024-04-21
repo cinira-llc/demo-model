@@ -57,6 +57,8 @@ publishing {
 repositories {
     mavenCentral()
     mavenLocal()
+    val ciniraArtifacts: Action<RepositoryHandler> by rootProject.extra
+    ciniraArtifacts(this)
 }
 
 kotlin {

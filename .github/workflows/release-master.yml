@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - run: ./gradlew -x javadoc -Pcinira_artifacts_repo_password=$PACKAGES_ACCESS_TOKEN test
+      - run: ./gradlew -Pcinira_artifacts_repo_password=$PACKAGES_ACCESS_TOKEN test
 
       - run: npm install
 
