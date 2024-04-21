@@ -4,9 +4,6 @@ on:
     branches:
       - master
 
-env:
-  GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.PACKAGES_ACCESS_TOKEN }}
-
 jobs:
   release_master:
     name: Release master
@@ -51,5 +48,7 @@ jobs:
       - run: npx semantic-release
         id: semantic_release
         env:
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGES_ACCESS_TOKEN: ${{ secrets.PACKAGES_ACCESS_TOKEN }}
