@@ -6,10 +6,10 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.Instant
 
 /**
- * [CycleMetafile] holds cycle and approach metadata parsed from a `d-TPP_Metafile.xml` file in a DTPP segment archive.
+ * [DtppMetafile] holds cycle and approach metadata parsed from a `d-TPP_Metafile.xml` file in a DTPP segment archive.
  */
 @Model
-data class CycleMetafile(
+data class DtppMetafile(
 
     /**
      * Official cycle number (4-digit.)
@@ -17,10 +17,10 @@ data class CycleMetafile(
     val cycle: Int,
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, timezone = "UTC")
-    val effectiveStartDateTime: Instant,
+    val effectiveEnd: Instant,
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, timezone = "UTC")
-    val effectiveEndDateTime: Instant,
+    val effectiveStart: Instant,
 
     val segments: Set<String> = emptySet(),
 
